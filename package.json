@@ -1,5 +1,3 @@
-// { "dependencies": { "twikoo-vercel": "latest" } }
-
 {
   "name": "twikoo-vercel",
   "version": "1.6.40",
