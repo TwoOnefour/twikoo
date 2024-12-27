@@ -609,6 +609,7 @@ async function commentSubmit (event, request) {
   // 预检测、转换
   const data = await parse(event, request)
   // 保存
+  data.url = data.url.replace(/index\.html$/, '');
   const comment = await save(data)
   res.id = comment.id
   // 异步垃圾检测、发送评论通知
@@ -632,7 +633,7 @@ async function commentSubmit (event, request) {
 
 // 保存评论
 async function save (data) {
-  data.url = data.url.replace(/index\.html$/, '');
+
   await db
     .collection('comment')
     .insertOne(data)
