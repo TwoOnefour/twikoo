@@ -277,6 +277,7 @@ async function commentGet (event) {
     let more = false
     let condition
     let query
+    event.url = event.url.replace(/index\.html$/, "");
     condition = {
       url: { $in: getUrlQuery(event.url) },
       rid: { $in: ['', null] }
